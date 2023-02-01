@@ -17,7 +17,7 @@ public class Employee extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(nullable = false)
-    private String name;
+    private String lastName;
     @Column(nullable = false)
     private String firstName;
     @Column(nullable = false)
@@ -28,5 +28,6 @@ public class Employee extends BaseEntity {
     private String jobName;
     @ManyToMany
     private List<Area> areas;
-
+    @ManyToMany
+    private List<Animal> animals;
 }

@@ -1,6 +1,6 @@
 package com.example.projetzoo.exceptions;
 
-import com.example.projetzoo.models.dtos.HttpExceptionDTO;
+import com.example.projetzoo.models.exceptions.HttpExceptionDTO;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 

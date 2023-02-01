@@ -22,9 +22,9 @@ public class Animal extends BaseEntity {
     @Column(nullable = false)
     private String species;
     @Column(nullable = false)
-    private String race;
-    @Column(nullable = false)
     private String sex;
-    @ManyToOne()
+    @ManyToOne
     private Area area;
+    @ManyToMany
+    private List<Employee> employees;
 }

@@ -3,6 +3,9 @@ package com.example.projetzoo.controllers;
 
 import com.example.projetzoo.exceptions.HttpNotFoundException;
 import com.example.projetzoo.models.entities.Animal;
+import com.example.projetzoo.models.entities.Area;
+import com.example.projetzoo.models.forms.AnimalCreateForm;
+import com.example.projetzoo.models.forms.AreaCreateForm;
 import com.example.projetzoo.services.animal.AnimalService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -36,6 +39,11 @@ public class AnimalController implements BaseRestController<Animal, Integer> {
     ) {
         Animal animal = this.animalService.readOneByKey(id).orElseThrow(() -> new HttpNotFoundException("Animal with id(" + id + ") is not found"));
 
+        return ResponseEntity.ok(animal);
+    }
+    @PostMapping
+    public ResponseEntity<Animal> insert(@RequestBody AnimalCreateForm form) {
+        Animal animal = this.animalService.save(form.toBll());
         return ResponseEntity.ok(animal);
     }
 }

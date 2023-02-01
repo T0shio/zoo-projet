@@ -1,6 +1,9 @@
 package com.example.projetzoo.controllers;
 import com.example.projetzoo.exceptions.HttpNotFoundException;
+import com.example.projetzoo.models.entities.Employee;
 import com.example.projetzoo.models.entities.Provider;
+import com.example.projetzoo.models.forms.EmployeeCreateForm;
+import com.example.projetzoo.models.forms.ProviderCreateForm;
 import com.example.projetzoo.services.provider.ProviderService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -34,6 +37,11 @@ public class ProviderController implements BaseRestController<Provider, Integer>
     ) {
         Provider provider = this.providerService.readOneByKey(id).orElseThrow(() -> new HttpNotFoundException("Provider with id(" + id + ") is not found"));
 
+        return ResponseEntity.ok(provider);
+    }
+    @PostMapping
+    public ResponseEntity<Provider> insert(@RequestBody ProviderCreateForm form) {
+        Provider provider = this.providerService.save(form.toBll());
         return ResponseEntity.ok(provider);
     }
 }

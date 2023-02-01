@@ -1,4 +1,4 @@
-package com.example.projetzoo.models.dtos;
+package com.example.projetzoo.models.exceptions;
 
 import lombok.Builder;
 import lombok.Data;

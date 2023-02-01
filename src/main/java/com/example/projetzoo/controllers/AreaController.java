@@ -2,6 +2,7 @@ package com.example.projetzoo.controllers;
 
 import com.example.projetzoo.exceptions.HttpNotFoundException;
 import com.example.projetzoo.models.entities.Area;
+import com.example.projetzoo.models.forms.AreaCreateForm;
 import com.example.projetzoo.services.area.AreaService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -35,6 +36,12 @@ public class AreaController implements BaseRestController<Area, Integer> {
     ) {
         Area area = this.areaService.readOneByKey(id).orElseThrow(() -> new HttpNotFoundException("Area with id(" + id + ") is not found"));
 
+        return ResponseEntity.ok(area);
+    }
+
+    @PostMapping
+    public ResponseEntity<Area> insert(@RequestBody AreaCreateForm form) {
+        Area area = this.areaService.save(form.toBll());
         return ResponseEntity.ok(area);
     }
 }
