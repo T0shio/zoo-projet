@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class AreasDto {
+public class AreaDto {
     private Integer id;
     private String name;
     private String environment;

@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class ProvidersDto {
+public class ProviderDto {
     private Integer id;
     private String providersName;
 
