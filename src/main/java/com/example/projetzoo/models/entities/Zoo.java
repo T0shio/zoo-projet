@@ -25,4 +25,6 @@ public class Zoo extends BaseEntity {
     private List<Provider> providers;
     @OneToMany
     private List<Area> areas;
+    @OneToMany
+    private List<Animal> animals;
 }

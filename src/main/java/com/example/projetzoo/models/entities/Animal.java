@@ -27,4 +27,6 @@ public class Animal extends BaseEntity {
     private Area area;
     @ManyToMany
     private List<Employee> employees;
+    @ManyToOne
+    private Zoo zoo;
 }

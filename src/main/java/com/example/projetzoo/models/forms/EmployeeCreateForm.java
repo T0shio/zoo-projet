@@ -2,10 +2,11 @@ package com.example.projetzoo.models.forms;
 
 import com.example.projetzoo.models.entities.Area;
 import com.example.projetzoo.models.entities.Employee;
-import org.hibernate.cfg.Environment;
+import lombok.Data;
+
 
 import java.util.ArrayList;
-
+@Data
 public class EmployeeCreateForm {
     private String lastName;
     private String firstName;

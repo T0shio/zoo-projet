@@ -1,10 +1,11 @@
 package com.example.projetzoo.models.forms;
 
-import com.example.projetzoo.models.entities.Area;
+
 import com.example.projetzoo.models.entities.Provider;
+import lombok.Data;
 
-import java.util.ArrayList;
 
+@Data
 public class ProviderCreateForm {
     private String nameProviders;
     private String productProvided;

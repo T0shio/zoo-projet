@@ -3,7 +3,6 @@ package com.example.projetzoo.services.provider;
 import com.example.projetzoo.models.entities.Provider;
 import com.example.projetzoo.repositories.ProviderRepository;
 import com.example.projetzoo.services.CrudServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service

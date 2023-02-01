@@ -2,9 +2,10 @@ package com.example.projetzoo.models.forms;
 
 import com.example.projetzoo.models.entities.Animal;
 import com.example.projetzoo.models.entities.Area;
+import lombok.Data;
 
 import java.util.ArrayList;
-
+@Data
 public class AnimalCreateForm {
     private String name;
     private String species;
