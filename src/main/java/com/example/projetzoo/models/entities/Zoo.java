@@ -13,16 +13,15 @@ import java.util.List;
 @Getter
 @Setter
 public class Zoo extends BaseEntity {
-    @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-
     private Integer id;
     @Column(nullable = false)
     private String name;
     @Column(nullable = false)
     private String address;
-    @ManyToMany()
+    @ManyToMany
     private List<Provider> providers;
     @OneToMany
     private List<Area> areas;

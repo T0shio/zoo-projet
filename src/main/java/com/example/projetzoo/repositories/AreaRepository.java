@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface AreaRepository extends JpaRepository <Area, String> {
+public interface AreaRepository extends JpaRepository <Area, Integer> {
     List<Area> findAllByActive(boolean active);
 }

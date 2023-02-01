@@ -3,6 +3,8 @@ package com.example.projetzoo.models.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @ToString
 @EqualsAndHashCode
 @NoArgsConstructor
@@ -10,8 +12,8 @@ import lombok.*;
 @Entity
 @Setter
 @Getter
-public class Animal {
-    @Id
+public class Animal extends BaseEntity {
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Integer id;
@@ -23,5 +25,6 @@ public class Animal {
     private String race;
     @Column(nullable = false)
     private String sex;
-
+    @ManyToOne()
+    private Area area;
 }

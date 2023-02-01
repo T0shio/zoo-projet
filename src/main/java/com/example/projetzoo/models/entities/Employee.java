@@ -12,7 +12,6 @@ import lombok.*;
 @Getter
 public class Employee extends BaseEntity {
     @Column(nullable = false)
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(nullable = false)

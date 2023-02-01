@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ZooServiceImpl extends CrudServiceImpl<ZooRepository, Zoo, Integer> implements ZooService  {
-    @Autowired
 
     public ZooServiceImpl(
             ZooRepository ZooRepository
