@@ -3,6 +3,8 @@ package com.example.projetzoo.models.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @ToString
 @EqualsAndHashCode
 @NoArgsConstructor
@@ -24,5 +26,7 @@ public class Employee extends BaseEntity {
     private String email;
     @Column(nullable = false)
     private String jobName;
+    @ManyToMany
+    private List<Area> areas;
 
 }

@@ -22,4 +22,6 @@ public class Area extends BaseEntity {
     private String environment;
     @OneToMany(mappedBy = "area")
     private List<Animal> animals;
+    @ManyToMany
+    private List<Employee> employees;
 }
