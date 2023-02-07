@@ -15,8 +15,6 @@ public class AnimalCreateForm {
         entity.setName(name);
         entity.setSpecies(species);
         entity.setSex(sex);
-        entity.setArea(new Area());
-        entity.setEmployees(new ArrayList<>());
         return entity;
     }
 }
