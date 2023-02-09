@@ -14,7 +14,6 @@ public class ZooCreateForm {
         Zoo entity = new Zoo();
         entity.setName(name);
         entity.setAddress(address);
-        entity.setAreas(new ArrayList<>());
         entity.setAnimals(new ArrayList<>());
         entity.setProviders(new ArrayList<>());
         return entity;

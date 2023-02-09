@@ -24,8 +24,9 @@ public class Animal extends BaseEntity {
     @Column(nullable = false)
     private String sex;
     @ManyToOne
-    private Area area;
+    private Area areas;
     @ManyToMany
+    @JoinTable(name = "animal_healer")
     private List<Employee> employees;
     @ManyToOne
     private Zoo zoo;

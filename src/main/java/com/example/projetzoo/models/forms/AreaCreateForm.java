@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 @Data
 public class AreaCreateForm {
+    private long zooId;
     private String name;
     private String environment;
 

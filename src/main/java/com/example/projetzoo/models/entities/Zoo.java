@@ -21,10 +21,8 @@ public class Zoo extends BaseEntity {
     private String name;
     @Column(nullable = false)
     private String address;
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST})
     private List<Provider> providers;
-    @OneToMany
-    private List<Area> areas;
-    @OneToMany
+    @OneToMany(mappedBy = "zoo")
     private List<Animal> animals;
 }

@@ -7,6 +7,7 @@ import lombok.Data;
 import java.util.ArrayList;
 @Data
 public class AnimalCreateForm {
+    private long areaId;
     private String name;
     private String species;
     private String sex;

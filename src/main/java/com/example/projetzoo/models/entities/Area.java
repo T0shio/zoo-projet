@@ -20,8 +20,10 @@ public class Area extends BaseEntity {
     private String name;
     @Column(nullable = false)
     private String environment;
-    @OneToMany(mappedBy = "area")
+    @OneToMany(mappedBy = "areas")
     private List<Animal> animals;
     @ManyToMany
     private List<Employee> employees;
+    @ManyToOne
+    private Zoo zoo;
 }

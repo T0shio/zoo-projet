@@ -1,6 +1,7 @@
 package com.example.projetzoo.controllers;
 
 import com.example.projetzoo.exceptions.HttpNotFoundException;
+import com.example.projetzoo.models.entities.Area;
 import com.example.projetzoo.models.entities.Employee;
 import com.example.projetzoo.models.entities.Zoo;
 import com.example.projetzoo.models.forms.EmployeeCreateForm;
@@ -36,10 +37,20 @@ public class ZooController implements BaseRestController<Zoo, Integer> {
     public ResponseEntity<Zoo> readOne(
             @PathVariable Integer id
     ) {
-        Zoo zoo = this.zooService.readOneByKey(id).orElseThrow(() -> new HttpNotFoundException("Zoo with id(" + id + ") is not found"));
+        Zoo zoo = this.zooService
+                .readOneByKey(id)
+                .orElseThrow(() -> new HttpNotFoundException("Zoo with id(" + id + ") is not found"));
 
         return ResponseEntity.ok(zoo);
     }
+
+//    @GetMapping(path = {"/{id}/animals"})
+//    @GetMapping(path = {"/{id}/area"})
+
+//    @GetMapping(path = {"/zoo/{id}/area"})
+//    public ResponseEntity<Area> getAreas() {
+//        return;
+
     @PostMapping
     public ResponseEntity<Zoo> insert(@RequestBody ZooCreateForm form) {
         Zoo zoo = this.zooService.save(form.toBll());

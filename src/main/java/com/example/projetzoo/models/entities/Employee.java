@@ -26,8 +26,8 @@ public class Employee extends BaseEntity {
     private String email;
     @Column(nullable = false)
     private String jobName;
-    @ManyToMany
+    @ManyToMany(mappedBy = "employees")
     private List<Area> areas;
-    @ManyToMany
+    @ManyToMany(mappedBy = "employees")
     private List<Animal> animals;
 }
