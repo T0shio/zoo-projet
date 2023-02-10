@@ -2,6 +2,7 @@ package com.example.projetzoo.models.forms;
 
 import com.example.projetzoo.models.entities.Animal;
 import com.example.projetzoo.models.entities.Area;
+import com.example.projetzoo.models.entities.Paddock;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.ArrayList;
 public class AnimalCreateForm {
     private long areaId;
     private long paddockId;
-    private String paddocks;
+    private Paddock paddocks;
     private String name;
     private String species;
     private String sex;
@@ -20,7 +21,7 @@ public class AnimalCreateForm {
         entity.setSpecies(species);
         entity.setSex(sex);
         entity.setAreas(areas);
-        entity.setPaddock(paddocks);
+        entity.setPaddocks(paddocks);
         return entity;
     }
 }

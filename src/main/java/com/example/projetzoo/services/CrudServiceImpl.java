@@ -2,7 +2,6 @@ package com.example.projetzoo.services;
 
 import com.example.projetzoo.exceptions.HttpNotFoundException;
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import org.springframework.data.domain.Pageable;
 import java.io.Serializable;
 import java.util.Optional;
