@@ -24,14 +24,10 @@ import java.util.Collection;
 public class AnimalController implements BaseRestController<Animal, Integer> {
     private final AnimalService animalService;
     private final AreaService areaService;
-    private final AreaRepository areaRepository;
-    private final AnimalRepository animalRepository;
 
     public AnimalController(AnimalService animalService, AreaService areaService, AnimalRepository animalRepository, AreaRepository areaRepository) {
         this.animalService = animalService;
         this.areaService = areaService;
-        this.areaRepository = areaRepository;
-        this.animalRepository = animalRepository;
     }
 
 

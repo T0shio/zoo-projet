@@ -11,4 +11,5 @@ public class AnimalDto {
     private String fullName;
     private String sex;
     private String species;
+
 }

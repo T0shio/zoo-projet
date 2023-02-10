@@ -20,16 +20,12 @@ import java.util.Collection;
 public class AreaController implements BaseRestController<Area, Integer> {
     private final AreaService areaService;
     private final ZooService zooService;
-    private final AreaRepository areaRepository;
-    private final ZooRepository zooRepository;
 
     public AreaController(AreaService areaService, ZooService zooService,
                           AreaRepository areaRepository,
                           ZooRepository zooRepository) {
         this.areaService = areaService;
         this.zooService = zooService;
-        this.areaRepository = areaRepository;
-        this.zooRepository = zooRepository;
     }
 
 
