@@ -30,4 +30,6 @@ public class Animal extends BaseEntity {
     private List<Employee> employees;
     @ManyToOne
     private Zoo zoo;
+    @ManyToOne
+    private Paddock paddocks;
 }

@@ -3,6 +3,8 @@ package com.example.projetzoo.models.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,4 +19,6 @@ public class Paddock extends BaseEntity {
     private int maxCapacity;
     @ManyToOne
     private Area areas;
+    @OneToMany(mappedBy = "paddocks")
+    private List<Animal> animals;
 }

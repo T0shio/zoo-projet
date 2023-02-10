@@ -8,7 +8,7 @@ import lombok.Data;
 import java.util.ArrayList;
 @Data
 public class PaddockCreateForm {
-        private Long idPaddock;
+        private Long areaId;
         private int maxCapacity;
         private Area area;
         public Paddock toBll() {
