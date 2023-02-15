@@ -2,7 +2,9 @@ package com.example.projetzoo.controllers;
 import com.example.projetzoo.exceptions.HttpNotFoundException;
 import com.example.projetzoo.models.entities.Area;
 import com.example.projetzoo.models.entities.Employee;
+import com.example.projetzoo.models.entities.Paddock;
 import com.example.projetzoo.models.forms.EmployeeCreateForm;
+import com.example.projetzoo.models.forms.PaddockCreateForm;
 import com.example.projetzoo.services.employee.EmployeeService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -41,6 +43,12 @@ public class EmployeeController implements BaseRestController<Employee, Integer>
     }
     @PostMapping
     public ResponseEntity<Employee> insert(@RequestBody EmployeeCreateForm form) {
+        Employee employee = this.employeeService.save(form.toBll());
+        return ResponseEntity.ok(employee);
+    }
+
+    @PatchMapping
+    public ResponseEntity<Employee> update(@RequestBody EmployeeCreateForm form) {
         Employee employee = this.employeeService.save(form.toBll());
         return ResponseEntity.ok(employee);
     }

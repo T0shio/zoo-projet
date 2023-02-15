@@ -4,6 +4,7 @@ import com.example.projetzoo.models.entities.Employee;
 import com.example.projetzoo.models.entities.Provider;
 import com.example.projetzoo.models.forms.EmployeeCreateForm;
 import com.example.projetzoo.models.forms.ProviderCreateForm;
+import com.example.projetzoo.repositories.ProviderRepository;
 import com.example.projetzoo.services.provider.ProviderService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -16,9 +17,12 @@ import java.util.Collection;
 @RequestMapping(path = {"/provider"})
 public class ProviderController implements BaseRestController<Provider, Integer> {
     private final ProviderService providerService;
+    private final ProviderRepository providerRepository;
 
-    public ProviderController(ProviderService providerService) {
+    public ProviderController(ProviderService providerService,
+                              ProviderRepository providerRepository) {
         this.providerService = providerService;
+        this.providerRepository = providerRepository;
     }
 
 
@@ -41,6 +45,11 @@ public class ProviderController implements BaseRestController<Provider, Integer>
     }
     @PostMapping
     public ResponseEntity<Provider> insert(@RequestBody ProviderCreateForm form) {
+        Provider provider = this.providerService.save(form.toBll());
+        return ResponseEntity.ok(provider);
+    }
+    @PatchMapping
+    public ResponseEntity<Provider> update(@RequestBody ProviderCreateForm form){
         Provider provider = this.providerService.save(form.toBll());
         return ResponseEntity.ok(provider);
     }

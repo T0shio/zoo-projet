@@ -13,7 +13,7 @@ import java.util.Collection;
 
 @RestController
 @RequestMapping(path ={"/Paddock"})
-public class PaddockController implements BaseRestController<Paddock, Integer>{
+public class PaddockController implements BaseRestController<Paddock, Integer> {
     private final PaddockService paddockService;
 
     public PaddockController(PaddockService paddockService) {
@@ -39,8 +39,15 @@ public class PaddockController implements BaseRestController<Paddock, Integer>{
         return ResponseEntity.ok(paddock);
 
     }
+
     @PostMapping
     public ResponseEntity<Paddock> insert(@RequestBody PaddockCreateForm form) {
+        Paddock paddock = this.paddockService.save(form.toBll());
+        return ResponseEntity.ok(paddock);
+    }
+
+    @PatchMapping
+    public ResponseEntity<Paddock> update(@RequestBody PaddockCreateForm form) {
         Paddock paddock = this.paddockService.save(form.toBll());
         return ResponseEntity.ok(paddock);
     }

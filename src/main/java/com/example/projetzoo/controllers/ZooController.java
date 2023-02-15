@@ -1,11 +1,12 @@
 package com.example.projetzoo.controllers;
 
 import com.example.projetzoo.exceptions.HttpNotFoundException;
+import com.example.projetzoo.models.entities.Animal;
 import com.example.projetzoo.models.entities.Area;
-import com.example.projetzoo.models.entities.Employee;
 import com.example.projetzoo.models.entities.Zoo;
-import com.example.projetzoo.models.forms.EmployeeCreateForm;
 import com.example.projetzoo.models.forms.ZooCreateForm;
+import com.example.projetzoo.repositories.AreaRepository;
+import com.example.projetzoo.services.area.AreaService;
 import com.example.projetzoo.services.zoo.ZooService;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -18,9 +19,14 @@ import java.util.Collection;
 @RequestMapping(path = {"/zoo"})
 public class ZooController implements BaseRestController<Zoo, Integer> {
     private final ZooService zooService;
+    private final AreaService areaService;
+    private final AreaRepository areaRepository;
 
-    public ZooController(ZooService zooService) {
+    public ZooController(ZooService zooService, AreaService areaService,
+                         AreaRepository areaRepository) {
         this.zooService = zooService;
+        this.areaService = areaService;
+        this.areaRepository = areaRepository;
     }
 
 
@@ -44,16 +50,16 @@ public class ZooController implements BaseRestController<Zoo, Integer> {
         return ResponseEntity.ok(zoo);
     }
 
-//    @GetMapping(path = {"/{id}/animals"})
-//    @GetMapping(path = {"/{id}/area"})
-
-//    @GetMapping(path = {"/zoo/{id}/area"})
-//    public ResponseEntity<Area> getAreas() {
-//        return;
+    @GetMapping(path = {"/zoo/{id}/area"})
+    public ResponseEntity<Area> getAreas() {
+        return ResponseEntity.ok(new Area());
+    }
 
     @PostMapping
     public ResponseEntity<Zoo> insert(@RequestBody ZooCreateForm form) {
         Zoo zoo = this.zooService.save(form.toBll());
+        Area areas = areaService.readOneByKey((int) form.getAreaId()).orElseThrow();
+        zoo.setAreas(areas);
         return ResponseEntity.ok(zoo);
     }
 }

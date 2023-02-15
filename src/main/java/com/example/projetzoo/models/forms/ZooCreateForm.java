@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class ZooCreateForm {
     private String name;
     private String address;
+    private long areaId;
     public Zoo toBll() {
         Zoo entity = new Zoo();
         entity.setName(name);

@@ -25,4 +25,6 @@ public class Zoo extends BaseEntity {
     private List<Provider> providers;
     @OneToMany(mappedBy = "zoo")
     private List<Animal> animals;
+    @ManyToOne
+    private Area areas;
 }

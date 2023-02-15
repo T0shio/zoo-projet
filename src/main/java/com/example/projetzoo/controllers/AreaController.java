@@ -1,6 +1,7 @@
 package com.example.projetzoo.controllers;
 
 import com.example.projetzoo.exceptions.HttpNotFoundException;
+import com.example.projetzoo.models.entities.Animal;
 import com.example.projetzoo.models.entities.Area;
 import com.example.projetzoo.models.entities.Zoo;
 import com.example.projetzoo.models.forms.AreaCreateForm;
@@ -53,5 +54,9 @@ public class AreaController implements BaseRestController<Area, Integer> {
         Zoo zoo = zooService.readOneByKey((int)form.getZooId()).orElseThrow();
         area.setZoo(zoo);
         return ResponseEntity.ok(areaService.save(area));
+    }
+    @GetMapping(path = {"/{id}/animals"})
+    public ResponseEntity<Animal> getAnimals(){
+        return ResponseEntity.ok(new Animal());
     }
 }
